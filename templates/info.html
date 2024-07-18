@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" type="image/x-icon" href="electrologo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <style>
+    .already-reg:hover{
+        text-decoration: none;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        }
+        body{
+        min-height: 40vh;
+        background-color: #dce1e3;
+        }
+        nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        height: 70px;
+        color: black;
+        background: #e8eff1;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        z-index: 99;
+        }
+        nav .navbar{
+        height: 100%;
+        max-width: 1250px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        /* background: red; */
+        padding: 0 50px;
+        }
+        .logo{
+            margin-left: -120px;
+        }
+        .navbar .logo a{
+        font-size: 30px;
+        color: #060e10;
+        text-decoration: none;
+        font-weight: 600;
+        }
+        nav .navbar .nav-links{
+        line-height: 70px;
+        margin-left: -50px;
+        height: 100%;
+        }
+        nav .navbar .links{
+        display: flex;
+        }
+        nav .navbar .links li{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0 14px;
+        }
+        nav .navbar .links li  a{
+        height: 100%;
+        text-decoration: none;
+        white-space: nowrap;
+        color: #0d0c0c;
+        font-size: 15px;
+        font-weight: 500;
+        }
+        .navbar .links li a:hover{
+        color: rgb(0, 140, 255);
+        /* height: 100%;
+        text-decoration: none;
+        white-space: nowrap;
+        font-size: 15px;
+        font-weight: 500; */
+        }
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow{
+        transform: rotate(180deg);
+        
+        }
+
+        nav .navbar .links li .arrow{
+        /* background: red; */
+        height: 100%;
+        width: 22px;
+        line-height: 70px;
+        text-align: center;
+        display: inline-block;
+        color: #1c1a1a;
+        transition: all 0.3s ease;
+        }
+        nav .navbar .links li .sub-menu{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        line-height: 40px;
+        color: rgb(16, 16, 16);
+        background: #1a1a1b;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 4px 4px;
+        display: none;
+        z-index: 2;
+        }
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu{
+        display: block;
+        }
+        .navbar .links li .sub-menu li{
+        padding: 0 22px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .navbar .links li .sub-menu a{
+        color: #fefcfc;
+        font-size: 15px;
+        font-weight: 500;
+        }
+        .navbar .links li .sub-menu .more-arrow{
+        line-height: 40px;
+        }
+        /* .navbar .links li .htmlCss-more-sub-menu{
+            line-height: 40px; 
+        } */
+        .navbar .links li .sub-menu .more-sub-menu{
+        position: absolute;
+        top: 0;
+        left: 100%;
+        border-radius: 0 4px 4px 4px;
+        z-index: 1;
+        display: none;
+        }
+        .links li .sub-menu .more:hover .more-sub-menu{
+        display: block;
+        }
+        .navbar .search-box{
+        position: relative;
+        height: 40px;
+        width: 40px;
+        }
+        .navbar .search-box i{
+        position: absolute;
+        /* height: 100%;
+        width: 100%; */
+        line-height: 40px;
+        text-align: center;
+        font-size: 22px;
+        color: #171515;
+        font-weight: 600;
+        cursor: pointer;
+        
+        transition: all 0.3s ease;
+        }
+        .navbar .search-box .input-box{
+        position: absolute;
+        right: calc(100% - 40px);
+        top: 80px;
+        height: 60px;
+        width: 300px;
+        background: #080909;
+        border-radius: 6px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+        }
+        .navbar.showInput .search-box .input-box{
+        top: 65px;
+        opacity: 1;
+        pointer-events: auto;
+        background: #2a2e2f;
+        }
+        .search-box .input-box::before{
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        background: #121313;
+        right: 10px;
+        top: -6px;
+        transform: rotate(45deg);
+        }
+        .search-box .input-box input{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 4px;
+        outline: none;
+        padding: 0 15px;
+        font-size: 16px;
+        border: 1px solid black;
+        }
+        .inputs{
+            margin-left: 30px;
+            width: 280px;
+            margin-top: 6px;
+            height: 36px;
+            padding: 9px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        .login{
+            margin-left: 10px;
+            margin-top: 5px;
+            width: 100px;
+            height: 30px;
+        }
+
+        
+        .navbar .nav-links .sidebar-logo{
+        display: none;
+        }
+        .navbar .bx-menu{
+        display: none;
+        }
+        @media (max-width:920px) {
+        nav .navbar{
+            max-width: 100%;
+            padding: 0 25px;
+        }
+
+        nav .navbar .logo a{
+            font-size: 27px;
+        }
+        nav .navbar .links li{
+            padding: 0 10px;
+            white-space: nowrap;
+        }
+        nav .navbar .links li a{
+            font-size: 15px;
+        }
+        }
+        @media (max-width:800px){
+        /* nav{ */
+            /* position: relative; */
+        /* } */
+        .navbar .bx-menu{
+            display: block;
+        }
+        nav .navbar .nav-links{
+            position: fixed;
+            top: 0;
+            left: -100%;
+            display: block;
+            max-width: 270px;
+            width: 100%;
+            background:  #dce1e3;
+            line-height: 40px;
+            padding: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            z-index: 1000;
+        }
+        .navbar .nav-links .sidebar-logo{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .sidebar-logo .logo-name{
+            font-size: 25px;
+            color: #111010;
+        }
+            .sidebar-logo  i,
+            .navbar .bx-menu{
+            font-size: 25px;
+            color: #fff;
+            }
+        nav .navbar .links{
+            display: block;
+            margin-top: 20px;
+        }
+        nav .navbar .links li .arrow{
+            line-height: 40px;
+        }
+        nav .navbar .links li{
+            display: block;
+        }
+        nav .navbar .links li .sub-menu{
+        position: relative;
+        top: 0;
+        box-shadow: none;
+        display: none;
+        }
+        nav .navbar .links li .sub-menu li{
+        border-bottom: none;
+
+        }
+
+        .navbar .links li .sub-menu .more-sub-menu{
+        display: none;
+        position: relative;
+        left: 0;
+        }
+        .navbar .links li .sub-menu .more-sub-menu li{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow{
+        transform: rotate(0deg);
+        }
+        .navbar .links li .sub-menu .more-sub-menu{
+            display: none;
+        }
+        .navbar .links li .sub-menu .more span{
+            /* background: red; */
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu{
+            display: none;
+        }
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu{
+            display: none;
+        }
+        .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+        .navbar .nav-links.show3 .links .js-sub-menu,
+        .navbar .nav-links.show2 .links .more .more-sub-menu{
+            display: block;
+            }
+            .navbar .nav-links.show1 .links .htmlcss-arrow,
+            .navbar .nav-links.show3 .links .js-arrow{
+                transform: rotate(180deg);
+        }
+            .navbar .nav-links.show2 .links .more-arrow{
+            transform: rotate(90deg);
+            }
+        }
+        @media (max-width:370px){
+        nav .navbar .nav-links{
+        max-width: 100%;
+        } 
+        }
+
+        footer{
+        height: 400px;
+        }
+        .contain{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .footerlist
+        {
+        list-style: none;
+            margin-top: 50px;
+            margin-left: 50px;
+            margin: 40px;
+            line-height: 200%;
+        }
+        .footerlist li a{
+            color: rgb(242, 242, 246);
+            font-size: 110%;
+            text-decoration: none;
+            font-family:Arial, Helvetica, sans-serif;
+
+        }
+        .footerlist li a:hover{
+            color: rgb(0, 255, 242);
+            font-weight: bold;
+            font-size: 120%;
+        }
+        .ft2{
+            margin-left: 220px;
+            margin-top: -205px;
+        }
+        .ft3{
+            margin-left: 410px;
+            margin-top: -205px;
+        }
+        .ft4{
+            margin-left: 590px;
+            margin-top: -205px;
+        }
+        .ft5{
+            margin-left: 900px;
+            margin-top: -205px;
+        }
+        .ft5 .input{
+        height: 45px;
+        width: 380px;
+        padding: 10px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        }
+        .service{
+        
+
+            padding: 10px;
+            color: orangered;
+            margin-left: 50px;
+        }
+        .service:hover{
+            color: rgb(9, 229, 249);
+            transform:ease(1.03);
+            transition-duration: 0.3s;
+        }
+        .submit-btn{
+            width: 130px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            background-color: #058dfd;
+            color: #dce1e3;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .mainproduct{
+        /* height: 400px;
+        width: 200px; */
+        
+        background-color: #fafcfd;
+        /* margin-top: 30px; */
+        
+        }
+
+        .prolist{
+        display: flex;
+        margin-left: 18%;
+        }
+        .prolist li{
+        list-style-type: none;
+        border: none;
+        padding: 20px;
+        margin: 20px;
+        height: 440px;
+        border-radius: 7px;
+        background-color: #e8eff1;
+        }
+        .prolist li:hover{
+        border: 2px solid rgb(8, 95, 194);
+        transform: scale(1.03);
+            transition-duration: 0.5s;
+        }
+   </style>
+  </head>
+<body>
+ 
+    <!-- Nav Bar Starts -->
+    <nav>
+        <div class="navbar">
+        <i class='bx bx-menu'></i>
+        <div class="logo"><img src="static/pic/electrologo.png" height="70px" width="170px" style="mix-blend-mode: multiply;"></div>
+        <div class="nav-links">
+            <div class="sidebar-logo">
+            <span class="logo-name">ElectroniXhub</span>
+            <i class='bx bx-x' ></i>
+            </div>
+            <ul class="links">
+            <li><a href="/">HOME</a></li>
+            <li>
+                <a href="/category">OUR PRODUCTS</a>
+                <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                <ul class="htmlCss-sub-menu sub-menu">
+                <li><a href="#">Mobiles</a></li>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Smart Watches</a></li>
+                <li class="more">
+                    <span><a href="#">More</a>
+                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                </span>
+                    <ul class="more-sub-menu sub-menu">
+                    <li><a href="#"></a></li>
+                    <li><a href="#">Camera</a></li>
+                    <li><a href="#">Sound System</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/wishlist">WISHLIST</a>
+                <!-- <i class='bx bxs-chevron-down js-arrow arrow '></i> -->
+                <!-- <ul class="js-sub-menu sub-menu">
+                <li><a href="#">Dynamic Clock</a></li>
+                <li><a href="#">Form Validation</a></li>
+                <li><a href="#">Card Slider</a></li>
+                <li><a href="#">Complete Website</a></li>
+                </ul> -->
+            </li>
+            <li><a href="/about">ABOUT US</a></li>
+            <li><a href="/contact">CONTACT US</a></li>
+            </ul>
+        </div>
+        <div class="search-box">
+            <input type="search" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;Search..."  class="inputs">
+        </div>
+        <button class="login">click me</button>
+        </div>
+        
+    </nav>
+    <!-- Nav Bar Ends -->
+    
+
+    <form action="/doconfirm" method="post" style="padding-left: 100px;padding-right: 100px;">
+        <div style="display: flex;">
+               <h3 style=" margin-left: 180px; margin-top: 150px; font-weight: bold; font-size: 35px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Information</h3>
+               <h3 style=" margin-left: 400px; margin-top: 150px; font-weight: bold; font-size: 35px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product</h3>
+        </div><br>
+        <div class="form-row">
+            
+            <div class="form-group col-md-6">
+              <label for="inputname">Full Name <span style="color: red;">*</span></label>
+              <input type="text" name="name" class="form-control" id="inputname" placeholder="Full name" required>
+            </div>
+           
+          </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputNumber">Mobile.No <span style="color: red;">*</span></label>
+              <input type="text" name="num" class="form-control" id="inputnumber" placeholder="Number" required>
+            </div>
+
+            <div class="products" style="margin-top: -80px; position: absolute; margin-left: 650px;">
+                {%for item in data%}
+                    <input type="hidden" name="sno" value="{{item[0]}}">
+                    <ul class="prolist">
+                    <li class="li">
+                        <div class="mainproducts"  style="padding: 30px; width: 500px;">
+                        <img src="{{item[5]}}" height="170px" width="170px" style="mix-blend-mode: multiply; margin-left: 100px;">
+                        <h2>{{item[1]}}</h2>
+                        <h3>Price : ₹{{item[2]}}/-</h3>
+                        <p>{{item[4]}}</p>    
+                        </div>
+                    </li>
+                    </ul>
+                {%endfor%}  
+            </div>
+
+            <!-- <div class="form-group col-md-6">
+                <label for="inputaltNumber">Alternative Mo.</label>
+                <input type="text" class="form-control" id="inputaltnumber" placeholder="altNumber">
+              </div> -->
+          </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Email<span style="color: red;">*</span></label>
+                <input type="email" name="email"  class="form-control" id="inputemail" placeholder="xyz@mail.com" required>
+            </div>
+        </div>  
+        <div class="form-row">
+          <!-- <div class="form-group col-md-6">
+            <label for="inputEmail4">Email<span style="color: red;">*</span></label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password<span style="color: red;">*</span></label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" required>
+          </div> -->
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Address<span style="color: red;">*</span></label>
+          <input type="text" name="address"  class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+        </div>
+        </div>
+        <!-- <div class="form-group">
+          <label for="inputAddress2">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" >
+        </div> -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City <span style="color: red;">*</span></label>
+            <input type="text" name="city" class="form-control" id="inputCity" required>
+          </div>
+        </div>  
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputState">State<span style="color: red;">*</span></label>
+            <select id="inputState" name="state" class="form-control">
+              <option selected>Madhaya Pradesh</option>
+              <option> Uttar Pradesh</option>
+              <option> Bihar</option>
+              <option> Jammu&Kashmir</option>
+              <option>Rajasthan</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip <span style="color: red;">*</span></label>
+            <input type="text" name="pin" class="form-control" id="inputZip" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" required>
+            <label class="form-check-label" for="gridCheck">
+                <span style="color: red;">*</span>I hereby declare that the information given above is correct.
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Confirm</button>
+        <input type="reset" value="Reset" class="btn btn-primary">
+      </form>
+    <br><br><br><br>  
+
+    <footer style="background-color: #2a2e2f; color: #e8eff1; padding: 20px;">
+        <!-- <img src="Samira-Hadid.gif" height="120px" width="120px" style="mix-blend-mode: multiply;"> -->
+        <h1 class="service">| &nbsp; Our Services</h1><br><br>
+        <ul class="footerlist">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/contact">FAQ</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+
+        <ul class="footerlist ft2">
+            <li><a href="/category">Products</a></li>
+            <li><a href="/category?category=mobile">Mobiles</a></li>
+            <li><a href="/category?category=headphone">Headphone</a></li>
+            <li><a href="/category?category=tv">Smart TV</a></li>
+            <li><a href="/category?category=watch">Smart Watches</a></li>
+        </ul>
+
+        <ul class="footerlist ft3">
+            <li><a href="/category?category=laptop">Laptops</a></li>
+            <li><a href="/category?category=watch">Analog Watches</a></li>
+            <li><a href="/category?category=camera">Camera</a></li>
+            <li><a href="/category?category=headphone">Earphone</a></li>
+            <li><a href="/category">Keyboards</a></li>
+        </ul>
+
+        <ul class="footerlist ft4">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/contact">Help Center</a></li>
+        <li><a href="/wishlist">Wishlist</a></li>
+        <li><a href="/contact">Reviews</a></li>
+    </ul>
+    <ul class="footerlist ft5">
+    <li><div>
+        <div class="drop-box">
+        <form>
+        <h2>Drop your suggestion here !!</h2>
+        <input type="text" placeholder="Write your suggestion...." class="input">
+        <br>
+        <input type="submit" value="Submit" class="submit-btn">
+        </form>
+        </div>
+    </div></li>
+    </ul>
+    <center><h5 style="background-color: #2a2e2f; width:1519px;margin-left:-20px; margin-top: 65px;color: #3ad9f2;">Copyright @2023 | Designed by FCA Champions !!</h5></center>
+    </footer>
+    
+
+
+    <script> 
+        // // search-box open close js code
+        // let navbar = document.querySelector(".navbar");
+        // let searchBox = document.querySelector(".search-box .bx-search");
+        // // let searchBoxCancel = document.querySelector(".search-box .bx-x");
+        
+        // searchBox.addEventListener("click", ()=>{
+        //   navbar.classList.toggle("showInput");
+        //   if(navbar.classList.contains("showInput")){
+        //     searchBox.classList.replace("bx-search" ,"bx-x");
+        //   }else {
+        //     searchBox.classList.replace("bx-x" ,"bx-search");
+        //   }
+        // });
+        
+        // sidebar open close js code
+        let navLinks = document.querySelector(".nav-links");
+        let menuOpenBtn = document.querySelector(".navbar .bx-menu");
+        let menuCloseBtn = document.querySelector(".nav-links .bx-x");
+        menuOpenBtn.onclick = function() {
+        navLinks.style.left = "0";
+        }
+        menuCloseBtn.onclick = function() {
+        navLinks.style.left = "-100%";
+        }
+        
+        
+        // sidebar submenu open close js code
+        let htmlcssArrow = document.querySelector(".htmlcss-arrow");
+        htmlcssArrow.onclick = function() {
+         navLinks.classList.toggle("show1");
+        }
+        let moreArrow = document.querySelector(".more-arrow");
+        moreArrow.onclick = function() {
+         navLinks.classList.toggle("show2");
+        }
+        // let jsArrow = document.querySelector(".js-arrow");
+        // jsArrow.onclick = function() {
+        //  navLinks.classList.toggle("show3");
+        // }
+        </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+

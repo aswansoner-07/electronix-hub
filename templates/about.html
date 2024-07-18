@@ -1,0 +1,76 @@
+{%extends 'headerfooter.html'%}
+
+    {%block css%}
+        .about{
+            margin-top: 110px;
+            margin-left: 60px;
+        }
+        .piccontent{
+            width: 80%;
+            height: 350px;
+            
+            margin-left: 100px;
+            
+        }
+        .content{
+            margin-top: 40px;
+
+        }
+        .ul1{
+            display: flex;
+            list-style-type: none;
+            margin-left: 50px;
+            margin-top: 50px;
+            padding: 30px;
+            justify-content: space-around;
+              
+        }
+       
+        
+       .list2{
+        display: flex;
+            list-style-type: none;
+            margin-left: 50px;
+            padding: 30px;
+           
+              
+       }
+       
+       .pic img{
+        mix-blend-mode: multiply;
+       }
+
+    {%endblock%}     
+    
+    {%block html%}
+      <div class="about">
+        <center> <h1 style="color: orangered;">About Us</h1>
+      <br><br>
+      <p style="font-size: 19px;">Welcome to our Electronics Items service. We are passionate about delivering delicious meals right to your doorstep.<br>Our mission is to 
+      provide you with a convinient and  enjoyable during experience without  the hassle of gadgets or going out.</p>
+      </center> </div><br><br>
+      <div class="piccontent">
+          <ul class="ul1">
+        <li class="list1"> <div class="pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRVrMtKorDtkoNeyZZvYOU6cMddZw8kSklyw&usqp=CAU" height="250px" width="270px"> </div></li>
+        <li class="list1"> <div class="content"> <h1 style="color: orangered;" class="impline">Fastest Delivery</h1><br><br>
+      <p style="font-size: 19px;"> Dream your favourite Electronic item at any time <br>and we will deliver them right to where you are.</div></li>
+          </ul>
+      </div><br><br>
+      <div class="piccontent">
+          <ul class="ul1">
+        
+        <li class="list1"> <div class="content"> <h1 style="color: orangered;"class="impline">Easy Payment Option</h1><br><br>
+      <p style="font-size: 19px;"> We offer easy payment options ensures a seamless experience for constomers<br> and increase customer satisfaction<br>payment mode available only <span style="color: #058dfd;">Case On Delivery</span> </p>
+      </div></li>
+      <li class="list1"> <div class="pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZoH3-yVMYtGT4ST0aBJZQwBh2rvJaXqGsFSqDjFWb9jugrj5qHA85M6i2lYaKuSbhKzc&usqp=CAU" height="250px" width="270px"> </div></li>
+          </ul>
+      </div><br><br>
+      <div class="piccontent">
+          <ul class="ul1">
+        <li class="list1"> <div class="pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9njV-b_wRx_Pr5ca_VJKd54h9h1AX-ClBbw&usqp=CAU" height="250px" width="270px"> </div></li>
+        <li class="list1"> <div class="content"> <h1 style="color: orangered;"class="impline">Importance of Electronics Items</h1><br><br>
+      <p style="font-size: 19px;">Electronics have a profound impact on various aspects of modern society and culture, <br>such as communication, entertainment, education, health care, industry, and security.
+      </div></li>
+          </ul>
+      </div>
+    {%endblock%}

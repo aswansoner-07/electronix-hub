@@ -1,0 +1,179 @@
+{%extends 'headerfooter.html'%}
+    {%block css%}
+        .slider{
+            width: 100%;
+            height: 600px;
+            background-image: url('static/pic/mob2.jpg');
+            animation: slide 60s infinite;
+            margin-top: 70px;
+        }
+        @keyframes slide{
+            10%{
+            
+                background-image: url('static/pic/ip7.webp');
+            }
+            20%{
+                background-image: url('static/pic/cam1.jpg');
+            }
+            30%{
+                background-image: url('static/pic/ip5.jpg');
+
+            }
+            40%{
+                background-image: url('static/pic/ip2.jpg');
+            }
+            50%{
+                background-image: url('static/pic/ip8.jpg');
+            }
+            60%{
+            
+                background-image: url('static/pic/cam3.jpeg.jpg');
+            }
+            70%{
+                background-image: url('static/pic/far1.jpg');
+            }
+            80%{
+                background-image: url('static/pic/wat4.webp');
+
+            }
+            90%{
+                background-image: url('static/pic/cam2.jpg');
+            }
+            100%{
+                background-image: url('static/pic/ip6.webp');
+            }
+        }
+
+        .mainproduct{
+        /* height: 400px;
+        width: 200px; */
+        
+        background-color: #fafcfd;
+        margin-top: 30px;
+        
+        }
+
+        .prolist{
+        display: flex;
+        margin-left: 18%;
+        }
+        .prolist li{
+        list-style-type: none;
+        border: none;
+        padding: 20px;
+        margin: 20px;
+        height: 400px;
+        border-radius: 7px;
+        background-color: #e8eff1;
+        }
+        .prolist li:hover{
+        border: 2px solid rgb(8, 95, 194);
+        transform: scale(1.03);
+        transition-duration: 0.3s;
+        }
+        .order{
+        width: 100px;
+        height: 35px;
+        margin-top: 18px;
+        border: none;
+        border-radius: 7px;
+        color: #e8eff1;
+        background-color: rgb(7, 130, 223);
+        }
+        .order:hover{
+        background-color: #ae05fd;
+        transform: scale(1.03);
+            transition-duration: 0.3s;
+        }
+        
+        .top-pro{
+        margin-left: 30px;
+        color: orangered;
+        width: 250px;
+        }
+        .top-pro:hover{
+        color: #058dfd;
+        }
+        .top-pro:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: -50px;
+        content: "";
+        display: block;
+        height: 2.5px;
+        left: 13%;
+        position: absolute;
+        background: #058dfd;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+        }
+        .top-pro:hover:after { 
+        width: 12%; 
+        left: 3.2%; 
+        }
+    {%endblock%} 
+
+    {%block html%}
+        <center>
+            <div class="slider">
+                </div></center>
+        <br><br>
+        <h2 class="top-pro">| &nbsp; Top-Products</h2>     
+        <div class="products">
+        <ul class="prolist">
+            <li class="li">
+            <div class="mainproducts"  style="padding: 30px; width: 500px; ">
+                <img src="https://devicer.cmsmasters.net/wp-content/uploads/2017/05/4.jpg" height="170px" width="170px" style="mix-blend-mode: multiply; margin-left: 100px;">
+                <h2>Apple 2.0-Smart Watch</h2>
+                <h3>Price : ₹399/-</h3>
+                <p>Apple 2.0 | Ignite the fire in you. </p>
+                <a href="/category"><button class="order"> Show More</button></a>
+            </div>
+            </li>
+            <li class="li">
+            <div class="mainproducts" style="margin-left: 0px; padding: 20px;width: 500px;" >
+                <img src="https://devicer.cmsmasters.net/wp-content/uploads/2017/09/20-3.jpg" height="170px" width="170px" style="mix-blend-mode: multiply; margin-left: 100px;">
+                <h2>Apple iphone-6</h2>
+                <h3>Price : ₹35000/-</h3>
+                <p>Apple iphone | 50mp rear + 8mp front camera , 16.5 inch Display </p>
+                <a href="/category"><button class="order"> Show More</button></a>
+            </div>
+            </li></ul>
+            <ul class="prolist">
+            <li class="li">
+            <div class="mainproducts" style="padding: 30px; width: 500px;">
+                <img src="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/8-3.jpg" height="170px" width="170px" style="mix-blend-mode: multiply; margin-left: 100px;">
+                <h2>Noise 420- Headphone</h2>
+                <h3>Price : ₹799/-</h3>
+                <p>Noise 420 | Best Sound quality and 24 hours battery backup. </p>
+                <a href="/category"><button class="order"> Show More</button></a>
+            </div></li>
+            <li class="li">
+            <div class="mainproducts" style="margin-left: 0px; padding: 20px;width: 500px;" >
+                <img src="https://media.istockphoto.com/id/515889260/photo/smart-tv-screen-side-view.jpg?s=612x612&w=0&k=20&c=16LVLE3vdvB5aGEP-_JlgFZ8YYNYCwmg-h4qiDzMNrE=" height="170px" width="170px" style="mix-blend-mode: multiply; margin-left: 100px;">
+                <h2>Sony Android Version-Smart TV</h2>
+                <h3>Price : ₹35999/-</h3>
+                <p>Sony Android | HD quality view + 32 inch Display </p>
+                <a href="/category"><button class="order"> Show More</button></a>
+            </div></li>
+        </ul>
+
+        <ul class="prolist">
+            <li class="li">
+            <div class="mainproducts" style="padding: 30px; width: 500px;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGHueERKKvSn3Yry4AyhNXmiOB5BOqLOxDGA&usqp=CAU" height="170px" width="170px" style="mix-blend-mode: multiply; margin-left: 100px;">
+                <h2>HP 15s- Laptop</h2>
+                <h3>Price : ₹55000/-</h3>
+                <p>HP 15s | Best Laptop for Coding and Gaming + 16.5 inch Display and 65w charger. </p>
+                <a href="/category"><button class="order"> Show More</button></a>
+            </div></li>
+            <li class="li">
+            <div class="mainproducts" style="margin-left: 0px; padding: 20px;width: 500px;" >
+                <img src="https://devicer.cmsmasters.net/wp-content/uploads/2017/09/17-3.jpg" height="170px" width="170px" style="mix-blend-mode: multiply; margin-left: 100px;">
+                <h2> Aroma 320s -Smart Watch</h2>
+                <h3>Price : ₹599/-</h3>
+                <p>Aroma 320s | Ignite the fire in you. </p>
+                <a href="/category"><button class="order"> Show More</button></a>
+            </div></li>
+        </ul>
+        </div>
+    {%endblock%}

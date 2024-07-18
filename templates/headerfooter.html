@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ElectroniXhub |  </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/pic/electrologo.png">
+    {%block link%}
+    {%endblock%}
+    <style>
+            /* Googlefont Poppins CDN Link */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        }
+        body{
+        min-height: 40vh;
+        background-color: #eef3f4;
+        overflow-x: hidden;
+        }
+        nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        height: 75px;
+        color: black;
+        background: #e8eff1;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        z-index: 99;
+        }
+        nav .navbar{
+        height: 100%;
+        max-width: 1250px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        /* background: red; */
+        padding: 0 50px;
+        }
+        .logo{
+            margin-left: -90px;
+        }
+        .navbar .logo a{
+        font-size: 30px;
+        color: #060e10;
+        text-decoration: none;
+        font-weight: 600;
+        }
+        nav .navbar .nav-links{
+        line-height: 70px;
+        margin-left: 80px;
+        height: 100%;
+        }
+        nav .navbar .links{
+        display: flex;
+        }
+        nav .navbar .links li{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0 14px;
+        }
+        nav .navbar .links li  a{
+        height: 100%;
+        text-decoration: none;
+        white-space: nowrap;
+        color: #0d0c0c;
+        font-size: 15px;
+        font-weight: 500;
+        }
+        .navbar .links li a:hover{
+        color: rgb(0, 140, 255);
+        /* height: 100%;
+        text-decoration: none;
+        white-space: nowrap;
+        font-size: 15px;
+        font-weight: 500; */
+        }
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow{
+        transform: rotate(180deg);
+        
+        }
+
+        nav .navbar .links li .arrow{
+        /* background: red; */
+        height: 100%;
+        width: 22px;
+        line-height: 70px;
+        text-align: center;
+        display: inline-block;
+        color: #1c1a1a;
+        transition: all 0.3s ease;
+        }
+        nav .navbar .links li .sub-menu{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        line-height: 40px;
+        color: rgb(16, 16, 16);
+        background: #1a1a1b;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 4px 4px;
+        display: none;
+        z-index: 2;
+        }
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu{
+        display: block;
+        }
+        .navbar .links li .sub-menu li{
+        padding: 0 22px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .navbar .links li .sub-menu a{
+        color: #fefcfc;
+        font-size: 15px;
+        font-weight: 500;
+        }
+        .navbar .links li .sub-menu .more-arrow{
+        line-height: 40px;
+        }
+        /* .navbar .links li .htmlCss-more-sub-menu{
+            line-height: 40px;
+        } */
+        .navbar .links li .sub-menu .more-sub-menu{
+        position: absolute;
+        top: 0;
+        left: 100%;
+        border-radius: 0 4px 4px 4px;
+        z-index: 1;
+        display: none;
+        }
+        .links li .sub-menu .more:hover .more-sub-menu{
+        display: block;
+        }
+        .navbar .search-box{
+        position: relative;
+        height: 40px;
+        width: 40px;
+        }
+        .navbar .search-box i{
+        position: absolute;
+        /* height: 100%;
+        width: 100%; */
+        line-height: 40px;
+        text-align: center;
+        font-size: 22px;
+        color: #171515;
+        font-weight: 600;
+        cursor: pointer;
+        
+        transition: all 0.3s ease;
+        }
+        .navbar .search-box .input-box{
+        position: absolute;
+        right: calc(100% - 40px);
+        top: 80px;
+        height: 60px;
+        width: 300px;
+        background: #080909;
+        border-radius: 6px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+        }
+        .navbar.showInput .search-box .input-box{
+        top: 65px;
+        opacity: 1;
+        pointer-events: auto;
+        background: #2a2e2f;
+        }
+        .search-box .input-box::before{
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        background: #121313;
+        right: 10px;
+        top: -6px;
+        transform: rotate(45deg);
+        }
+        .search-box .input-box input{
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        border-radius: 4px;
+        outline: none;
+        padding: 0 15px;
+        font-size: 16px;
+        border: 1px solid black;
+        }
+        .inputs{
+            margin-left: 50px;
+            width: 280px;
+            margin-top: 6px;
+            height: 36px;
+            padding: 9px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        .login{
+            margin-left: 310px;
+            margin-top: 5px;
+            width: 200px;
+            height: 35px;
+            background-color: #058dfd;
+            border: none;
+            border-radius: 5px;
+            color: #dce1e3;
+            padding: 9px;
+            
+        }
+        .login:hover{
+        background-color: #9d09e2;
+        font-weight: bold;
+        
+        }
+        
+        .navbar .nav-links .sidebar-logo{
+        display: none;
+        }
+        .navbar .bx-menu{
+        display: none;
+        }
+        @media (max-width:920px) {
+        nav .navbar{
+            max-width: 100%;
+            padding: 0 25px;
+        }
+
+        nav .navbar .logo a{
+            font-size: 27px;
+        }
+        nav .navbar .links li{
+            padding: 0 10px;
+            white-space: nowrap;
+        }
+        nav .navbar .links li a{
+            font-size: 15px;
+        }
+        }
+        @media (max-width:800px){
+        /* nav{
+             position: relative;
+        } */
+        .navbar .bx-menu{
+            display: block;
+        }
+        nav .navbar .nav-links{
+            position: fixed;
+            top: 0;
+            left: -100%;
+            display: block;
+            max-width: 270px;
+            width: 100%;
+            background:  #dce1e3;
+            line-height: 40px;
+            padding: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            z-index: 1000;
+        }
+        .navbar .nav-links .sidebar-logo{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .sidebar-logo .logo-name{
+            font-size: 25px;
+            color: #111010;
+        }
+            .sidebar-logo  i,
+            .navbar .bx-menu{
+            font-size: 25px;
+            color: #fff;
+            }
+        nav .navbar .links{
+            display: block;
+            margin-top: 20px;
+        }
+        nav .navbar .links li .arrow{
+            line-height: 40px;
+        }
+        nav .navbar .links li{
+            display: block;
+        }
+        nav .navbar .links li .sub-menu{
+        position: relative;
+        top: 0;
+        box-shadow: none;
+        display: none;
+        }
+        nav .navbar .links li .sub-menu li{
+        border-bottom: none;
+
+        }
+
+        .navbar .links li .sub-menu .more-sub-menu{
+        display: none;
+        position: relative;
+        left: 0;
+        }
+        .navbar .links li .sub-menu .more-sub-menu li{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow{
+        transform: rotate(0deg);
+        }
+        .navbar .links li .sub-menu .more-sub-menu{
+            display: none;
+        }
+        .navbar .links li .sub-menu .more span{
+            /* background: red; */
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu{
+            display: none;
+        }
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu{
+            display: none;
+        }
+        .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+        .navbar .nav-links.show3 .links .js-sub-menu,
+        .navbar .nav-links.show2 .links .more .more-sub-menu{
+            display: block;
+            }
+            .navbar .nav-links.show1 .links .htmlcss-arrow,
+            .navbar .nav-links.show3 .links .js-arrow{
+                transform: rotate(180deg);
+        }
+            .navbar .nav-links.show2 .links .more-arrow{
+            transform: rotate(90deg);
+            }
+        }
+        @media (max-width:370px){
+        nav .navbar .nav-links{
+        max-width: 100%;
+        } 
+        }
+
+        /* css */
+        {%block css%}
+
+        {%endblock%}
+
+        footer{
+        height: 400px;
+        }
+        .contain{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .footerlist
+        {
+        list-style: none;
+            margin-top: 50px;
+            margin-left: 50px;
+            margin: 40px;
+            line-height: 200%;
+        }
+        .footerlist li a{
+            color: rgb(242, 242, 246);
+            font-size: 110%;
+            text-decoration: none;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .footerlist li a:hover{
+            color: rgb(0, 255, 242);
+            font-weight: bold;
+            font-size: 120%;
+        }
+        .ft2{
+            margin-left: 220px;
+            margin-top: -205px;
+        }
+        .ft3{
+            margin-left: 410px;
+            margin-top: -205px;
+        }
+        .ft4{
+            margin-left: 590px;
+            margin-top: -205px;
+        }
+        .ft5{
+            margin-left: 900px;
+            margin-top: -205px;
+        }
+        .ft5 .input{
+        height: 45px;
+        width: 380px;
+        padding: 10px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        }
+        .service{
+            padding: 10px;
+            color: orangered;
+            margin-left: 50px;
+        }
+        .service:hover{
+            color: rgb(9, 229, 249);
+            transform:ease(1.03);
+            transition-duration: 0.3s;
+        }
+        .submit-btn{
+        width: 130px;
+        height: 40px;
+        border: none;
+        border-radius: 5px;
+        background-color: #058dfd;
+        color: #dce1e3;
+        font-weight: bold;
+        margin-top: 20px;
+        }
+
+        /* Styles for the popup */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup-content {
+            background-color: #fff; /* White background */
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            max-width: 400px; /* Adjust the maximum width as needed */
+            width: 90%; /* Responsive width */
+            position: relative;
+        }
+
+        .popup-content h2 {
+            font-size: 24px; /* Heading font size */
+            margin-bottom: 20px;
+            color: #333; /* Heading text color */
+        }
+
+        .popup-content p {
+            font-size: 18px; /* Paragraph font size */
+            color: #666; /* Paragraph text color */
+            margin-bottom: 30px;
+        }
+
+        #closeButton {
+            padding: 10px 20px;
+            background-color: #ff5959; /* Button background color */
+            border: none;
+            cursor: pointer;
+            color: #fff; /* Button text color */
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px; /* Button text size */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #closeButton:hover {
+            background-color: #ff4040; /* Button background color on hover */
+        }
+
+        /* Add animation to the popup for a smooth appearance */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup-content {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        /* .logout-drop-down{
+            width: 200px;
+            list-style-type: none;
+            border: 1px solid #ccc;
+            padding: 10px;
+            color: #dce1e3;
+            mix-blend-mode: multiply;
+            margin-left: -180px;
+            margin-top: 120px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+        }
+        .logout:hover +.logout-drop-down{
+            opacity: 1;
+        }
+        .logout-drop-down button{
+            width: 140px;
+            font-weight: bold;
+            font-size: 15px;
+            color: #dce1e3;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            background-color:transparent;
+        } */
+    </style>
+</head>
+
+<body>
+    <!--html start for the popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+          <h2>{{header}}</h2>
+          <p>{{error}}</p>
+          <button type="submit" id="closeButton" onclick="ok()">Ok</button>
+        </div>
+    </div>
+    <!-- end of popup  -->
+        <nav>
+            <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><img src="static/pic/electrologo.png" height="80px" width="170px" style="mix-blend-mode: multiply;"></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                <span class="logo-name">ElectronicXhub</span>
+                <i class='bx bx-x' ></i>
+                </div>
+                <ul class="links">
+                <li><a href="/">HOME</a></li>
+                <li>
+                    <a href="/category">OUR PRODUCTS</a>
+                    <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                    <ul class="htmlCss-sub-menu sub-menu">
+                    <li><a href="/category?category=mobile">Mobiles</a></li>
+                    <li><a href="/category?category=smart tv">TV</a></li>
+                    <li><a href="/category?category=watch">Smart Watches</a></li>
+                    <li class="more">
+                        <span><a href="#">More</a>
+                        <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                    </span>
+                        <ul class="more-sub-menu sub-menu">
+                        <li><a href="#"></a></li>
+                        <li><a href="/category?category=camera">Camera</a></li>
+                        <li><a href="/category?category=laptop">Laptop</a></li>
+                        <li><a href="/category?category=headphone">Headphones</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/wishlist">WISHLIST</a>
+                </li>
+                <li><a href="/about">ABOUT US</a></li>
+                <li><a href="/contact">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="search-box">
+                <form action="/search" method="post">
+                    <input type="search" name="search" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;Search Products..."  class="inputs">
+                </form>
+            </div>
+                {%if session['login']%}
+                        <a href="/logout" class="logout"><button class="login">Logout</button></a>
+                            <!-- <ul class="logout-drop-down">
+                                <li><a href="/user_profile" ><button>Profile</button></a></li>
+                                <li><a href="/user_orders" ><button>Orders</button></a></li>
+                            </ul> -->
+                {%else%}
+                    <a href="/login"><button class="login">Login/Register</button></a>
+                {%endif%}
+            </div>
+            
+        </nav>
+        
+        <!-- Html -->
+        {%block html%}
+
+        {%endblock%}
+        <br><br><br><br><br><br>
+        <footer style="background-color: #2a2e2f; color: #e8eff1; padding: 20px;">
+            <!-- <img src="Samira-Hadid.gif" height="120px" width="120px" style="mix-blend-mode: multiply;"> -->
+            <h1 class="service">| &nbsp; Our Services</h1><br><br>
+            <ul class="footerlist">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/account">My Account</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+
+            <ul class="footerlist ft2">
+                <li><a href="/category">Products</a></li>
+                <li><a href="/category?category=mobile">Mobiles</a></li>
+                <li><a href="/category?category=headphone">Headphone</a></li>
+                <li><a href="/category?category=smart tv">Smart TV</a></li>
+                <li><a href="/category?category=watch">Smart Watches</a></li>
+            </ul>
+
+            <ul class="footerlist ft3">
+                <li><a href="/category?category=laptop">Laptops</a></li>
+                <li><a href="/category?category=watch">Analog Watches</a></li>
+                <li><a href="/category?category=camera">Camera</a></li>
+                <li><a href="/category?category=headphone">Earphone</a></li>
+                <li><a href="/category?category=keyboard">Keyboards</a></li>
+            </ul>
+
+            <ul class="footerlist ft4">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/contact">Help Center</a></li>
+            <li><a href="/wishlist">Wishlist</a></li>
+            <li><a href="#">Reviews</a></li>
+        </ul>
+        <ul class="footerlist ft5">
+        <li><div>
+            <div class="drop-box">
+            <form action="/suggest" method="post">
+                <h2>Drop your suggestion here !!</h2>
+                <input type="text" id="suggestion" name="suggestion" placeholder="Write your suggestion...." class="input">
+                <br>
+                <button type="submit" class="submit-btn">Click</button>
+            </form>
+            </div>
+        </div></li>
+        </ul>
+        <center><h5 style="margin-top: 65px;color: #3ad9f2;">Copyright @2023 | Designed by FCA Champions !!</h5></center>
+        </footer>
+            
+        <script> 
+        // // search-box open close js code
+        // let navbar = document.querySelector(".navbar");
+        // let searchBox = document.querySelector(".search-box .bx-search");
+        // // let searchBoxCancel = document.querySelector(".search-box .bx-x");
+
+        // searchBox.addEventListener("click", ()=>{
+        // navbar.classList.toggle("showInput");
+        // if(navbar.classList.contains("showInput")){
+        //     searchBox.classList.replace("bx-search" ,"bx-x");
+        // }else {
+        //     searchBox.classList.replace("bx-x" ,"bx-search");
+        // }
+        // });
+
+        // sidebar open close js code
+        let navLinks = document.querySelector(".nav-links");
+        let menuOpenBtn = document.querySelector(".navbar .bx-menu");
+        let menuCloseBtn = document.querySelector(".nav-links .bx-x");
+        menuOpenBtn.onclick = function() {
+        navLinks.style.left = "0";
+        }
+        menuCloseBtn.onclick = function() {
+        navLinks.style.left = "-100%";
+        }
+
+
+        // sidebar submenu open close js code
+        let htmlcssArrow = document.querySelector(".htmlcss-arrow");
+        htmlcssArrow.onclick = function() {
+        navLinks.classList.toggle("show1");
+        }
+        let moreArrow = document.querySelector(".more-arrow");
+        moreArrow.onclick = function() {
+        navLinks.classList.toggle("show2");
+        }
+        // let jsArrow = document.querySelector(".js-arrow");
+        // jsArrow.onclick = function() {
+        // navLinks.classList.toggle("show3");
+        // }
+</script>
+<script>
+    const popupOverlay = document.getElementById('popupOverlay');
+    // const closeButton = document.getElementById('closeButton'); 
+    document.addEventListener('keypress', handleKeyPress); 
+    function popup(){
+        popupOverlay.style.display = 'flex';
+    }
+    function ok(){
+        popupOverlay.style.display = 'none';
+    }
+    function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                popupOverlay.style.display = 'none';
+            }
+        }
+    {%if error%}
+            popup();
+    {%endif%}
+</script>
+</body>
+</html>

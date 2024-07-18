@@ -1,0 +1,128 @@
+{% extends "headerfooter.html" %}
+{% block css %}
+    .mainproduct {
+        background-color: #fafcfd;
+        padding: 20px;
+        border-radius: 7px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        height: 460px;
+    }
+
+    .products {
+        text-align: center;
+    }
+
+    .prolist {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0 -20px;
+    }
+
+    .prolist li {
+        list-style-type: none;
+        border: 2px solid transparent;
+        width: 25%;
+        border-radius: 7px;
+        background-color: #e8eff1;
+        margin: 30px 20px;
+        transition: transform 0.3s ease, border 0.3s ease;
+        padding: 0;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .prolist li:hover {
+        border: 2px solid rgb(8, 95, 194);
+        transform: scale(1.03);
+        box-sizing: border-box;
+    }
+
+    .order {
+        width: 100px;
+        height: 35px;
+        margin-top: 18px;
+        border: none;
+        border-radius: 7px;
+        color: #fff;
+        background-color: rgb(7, 130, 223);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .order:hover {
+        background-color: #ae05fd;
+        transform: scale(1.03);
+    }
+
+    .heading {
+        margin-left: 30px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        width: 200px;
+        transition: color 0.3s ease;
+    }
+
+    .heading:hover {
+        color: orangered;
+    }
+
+    footer {
+        height: 400px;
+    }
+
+    .contain {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+    }
+    .remove-btn {
+        display: inline-block;
+        padding: 5px 20px;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 7px;
+        background-color: rgb(7, 130, 223);
+        color: #fff;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+    }
+    
+    .remove-btn:hover {
+        background-color: #ae05fd;
+        transform: scale(1.03);
+        -webkit-transform: scale(1.03);
+    }
+     
+{% endblock %}
+
+{% block html %}
+<br><br><br><br>
+<h1 class="heading">| &nbsp; Your Cart</h1>
+<br><br>
+{% if products %}
+<div class="products">
+    <ul class="prolist">
+        {% for item in products %}
+        <li class="li">
+            <form action="/doorder" method="post">
+                <input type="hidden" name="sno" value="{{item[0]}}">
+                <div class="mainproduct">
+                    <img src="{{item[5]}}" height="170px" width="170px" style="mix-blend-mode: multiply; margin-left: auto; margin-right: auto; display: block;">
+                    <h2 style="text-align: center;">{{item[1]}}</h2>
+                    <h3 style="text-align: center;">Price : ₹{{item[2]}}/-</h3>
+                    <p style="text-align: center;">{{item[4]}}</p>
+                    <button class="order" type="submit">Order Now</button>
+                    <a href="/remove_from_cart?sno={{item[0]}}" class="remove-btn">Remove</a>
+                </div>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% else %}
+No Items Added To Cart...
+{% endif %}
+<br><br>
+{% endblock %}

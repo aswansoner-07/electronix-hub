@@ -1,0 +1,85 @@
+{% extends "headerfooter.html" %}
+{% block css %}
+    .heading {
+        margin-top: 100px;
+    }
+    .cart-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+    .cart-item {
+        width: calc(20% - 40px);
+        padding: 20px;
+        background-color: #fff;
+        border: 2px solid #ddd; 
+        border-radius: 10px; 
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 20px; 
+        transition: transform 0.3s ease;
+    }
+    .cart-item:hover {
+        transform: scale(1.05);
+    }
+    .cart_category {
+        height: 100%;
+    }
+    .cart_img {
+        height: 150px;
+        width: 150px;
+        border-radius: 5px;
+        mix-blend-mode: multiply;
+    }
+    .cart-item-details {
+        margin-top: 20px;
+        margin-left: 10px;
+        font-size: 18px;
+    }
+    .cart-item-extra {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+    .cart-item-button {
+        margin-top: 10px;
+        height: 30px;
+        width: 120px;
+        background-color: blue;
+        color: #dce1e3;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .cart-item-button:hover {
+        background-color: #ae05fd;
+        font-weight: bold;
+        transform: scale(1.03);
+        transition-duration: 0.3s;
+    }
+{% endblock %}
+{% block html %}
+<div>
+    <center><h1 class="heading">Categories</h1></center>
+</div>
+<div class="cart-container">
+    {% for item in data %}
+    <div class="cart-item">
+        <form action="/addcart" method="post">
+            <div class="cart_category">
+                <center><img class="cart_img" src="{{ item[5] }}" alt="loading..."></center>
+                <div class="cart-item-details">
+                    <b>
+                        <input type="hidden" name="sno" value="{{ item[0] }}">
+                        <div class="cart-item-title">{{ item[1] }}</div>
+                        <div class="cart-item-price">Price: ₹{{ item[2] }}</div>
+                    </b>
+                    <div class="cart-item-extra">{{ item[4] }}</div>
+                    <button type="submit" class="cart-item-button">Add to Cart</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

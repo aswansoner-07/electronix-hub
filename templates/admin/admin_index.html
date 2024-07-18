@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - ElectroniX-hub</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-right: 4%;
+            text-align: right; /* Align the text to the right */
+        }
+
+        .navbar li {
+            display: inline-block; /* Display list items inline */
+        }
+
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 30px;
+            text-decoration: none;
+            font-size: large;
+        }
+        .navbar li a:hover {
+            background-color: #555;
+        }
+        .navbar-logo {
+            float: left;
+            margin-left: 3%;
+        }
+        .navbar-logo img {
+            float: left;
+            height: 60px; 
+            /* width: auto; */
+            mix-blend-mode: multiply;
+        }
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li class="navbar-logo"><img src="static/pic/electrologo.png" alt="Website Logo"></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Coupon</a></li>
+            <!-- <li><a href="#">Logout</a></li> -->
+        </ul>
+    </div>
+    <main id="content">
+
+    </main>
+    <footer>
+        <p>&copy; 2023 ElectroniX-hub</p>
+    </footer>
+</body>
+</html>

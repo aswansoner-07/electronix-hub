@@ -1,0 +1,117 @@
+{%extends 'headerfooter.html'%}
+{%block css%}
+    #icon li:hover{
+        transform: scale(1.2);
+        transition-duration: 0.3s;  
+    }
+    .center_div{
+        width: 100%;
+        height: 110%;
+        font-family: 'Courier New', Courier, monospace;
+        text-transform: capitalize;
+        
+    }
+    .email{
+        color: black;
+        font-weight: bold;
+    }
+    .email:hover{
+        color: rgb(0, 151, 238); 
+    }
+    .ul{
+        display: flex;
+        list-style: none;
+        margin: 8px;
+    }
+    .ul li{
+        padding: 24px;
+    }
+    .ul li a{
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .ul li a:hover{
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .fst{
+        border: 2px solid rgb(5, 194, 203);
+        border-radius: 39px;
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+    .lg{
+        border-radius: 4px;
+        margin-left: 30px;
+        mix-blend-mode:multiply;
+    }
+    .haa:hover{
+            
+        transform: scale(1.1);
+        transition-duration: 0.3s; 
+    }
+{%endblock%}
+{%block html%}
+<section class="center_div" style="margin-top: 50px;">
+    <br><br><a href="/"><img src="static/pic/Samira-Hadid.gif"  width="150px" height="100px" class="home lg"></a>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ftgabNdnEeFtg96DhpZK5Kr035nKngDpB-G4A8KAbH72YJlRvd1FZMstM_4vqDPNLuY&usqp=CAU" width="300px" height="150px" class="home" style="float: right; margin-right: 50px; border-radius: 25px; mix-blend-mode: multiply;"></a><br>
+    <center><h2 class="contact" style="color: rgb(255, 255, 255);font-weight: bold; font-weight: bold; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: normal;  width: 200px; height: 40px; text-align: center; border-radius: 10px;background-color: #058dfd;">Contact Us</h2></center>
+    <br><br><br><br>
+    <ul style="display: flex; list-style-type: none; justify-content: space-between; text-transform: capitalize; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+    <li><p style="margin-left: 30px; color: rgb(0, 0, 0); font-weight: bold;">
+        Privacy-policy  &nbsp; &nbsp; &nbsp; ___ &nbsp; &nbsp; &nbsp;   under the ACROPOLIS<br><br>
+        Website-policy  &nbsp; &nbsp; &nbsp; ___  &nbsp; &nbsp; &nbsp;   under the FCA Department<br><br>
+       Product Type &nbsp; &nbsp; &nbsp; ___  &nbsp; &nbsp; &nbsp; Electonic Products<br><br>
+       
+    </p></li>
+    <li> <h2 style="color: rgb(255, 255, 255);font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-style: normal;  width: 200px; height: 40px; text-align: center; border-radius: 10px;background-color: #058dfd;">Help Center 📩</h2>
+        <br><p style="margin-right: 30px; color: rgb(0, 0, 0); font-weight: bold;">
+        For any query contact us  <br><br>
+        Ashish Yadav &nbsp; ___ &nbsp; &nbsp; <a href="mailto:ashishyadav.mca22@acropolis.in" style="text-transform: lowercase;" class="email">ashishyadav.mca22@acropolis.in</a><br><br>
+        Sandeep Patel &nbsp;  ___  &nbsp; &nbsp; <a href="mailto:missingpatel@gmail.com" style="text-transform: lowercase;" class="email">missingpatel@gmail.com</a><br><br>
+        Ajay Kumar Solanki &nbsp;  ___  &nbsp; &nbsp; <a href="mailto:solankia022@gmail.com" style="text-transform: lowercase;" class="email">solankia022@gmail.com</a>
+    
+    </p></li>
+    </ul>
+    <p style=" margin-left: 20px; color: rgb(0, 0, 0); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 110%; font-weight: bold;">
+         Follow For More.......<br>
+        <ul style="padding: 15px; list-style-type: none; display: flex;" class="ul" id="icon">
+            <li> <img src="https://cdn.pixabay.com/photo/2021/06/15/12/14/instagram-6338392_1280.png" width="50px" height="50px" style="border-radius: 25px;"> </li>
+            <li><img src="https://png.pngtree.com/element_our/md/20180506/md_5aeee44e137e1.jpg" width="50px" height="50px" style="border-radius: 25px;"></li>
+            <li><img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Logo_de_Facebook.png" width="50px" height="50px" style="border-radius: 25px;"></li>
+            <li><img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" width="50px" height="50px" style="border-radius: 25px;"></li>
+        </ul>
+        
+    </p>
+
+    <ul class="ul" style=" justify-content: space-around; margin-top: 15px;">
+        <li><div class="haa" style="border: 2px solid rgb(255, 128, 0); border-radius: 10px; width: 350px; height: 400px; background-color: aliceblue;">
+    <img src="static/pic/abhi.jpg" width="80px" height="80px" style="mix-blend-mode: multiply;" class="fst">
+        <p style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; margin: 10px;">
+            Abhishek Patel is the Co-Founder of ElectroniX-hub and ElectroniX-hub and serves on ElectroniX-hub’s Board of Directors.<br> Under his leadership, Google has been focused on developing products and services, powered by the latest advances in AI,<br> that offer help in moments big and small.
+            <br><br>  <span style="color: rgb(2, 197, 246); font-family: sans-serif;">- Abhishek_Patel..... </span></p>
+    </div>
+        </li>
+        <li><div class="haa" style="border: 2px solid rgb(216, 120, 10); border-radius: 10px; width: 350px; height: 400px;background-color: aliceblue;">
+            <img src="static/pic/sandeep.jpg" width="80px" height="80px" style="mix-blend-mode: multiply;" class="fst">
+            <p style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; margin: 10px;">
+                Sandeep Patel is the CEO of ElectroniX-hub and ElectroniX-hub and serves on ElectroniX-hub’s Board of Directors.<br> Under his leadership, Google has been focused on developing products and services, powered by the latest advances in AI,<br> that offer help in moments big and small.
+        <br><br><span style="color: rgb(0, 217, 255); font-family: sans-serif;">- Sandeep_Patel..... </span></p>
+        </div>
+    </li>
+    <li><div style="border: 2px solid rgb(215, 132, 6); border-radius: 10px; width: 350px; height: 400px;background-color: aliceblue;" class="haa">
+        <img src="static/pic/ajay.jpg" width="80px" height="80px" style="mix-blend-mode: multiply;" class="fst">
+        <p style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; margin: 10px;">
+            Ajay kumar solanki is the Co-Founder of ElectroniX-hub and ElectroniX-hub and serves on ElectroniX-hub’s Board of Directors.<br> Under his leadership, Google has been focused on developing products and services, powered by the latest advances in AI,<br> that offer help in moments big and small.
+            <br><br><span style="color: rgb(0, 200, 255); font-family: sans-serif;">- AKS_Patwari..... </span></p>
+
+    </div>
+    </li>
+    </ul>
+</section>
+
+{%endblock%}

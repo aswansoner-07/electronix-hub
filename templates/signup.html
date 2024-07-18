@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" type="image/x-icon" href="electrologo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <style>
+    .already-reg:hover{
+        text-decoration: none;
+    }
+    /* Styles for the popup */
+    .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup-content {
+            background-color: #fff; /* White background */
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            max-width: 400px; /* Adjust the maximum width as needed */
+            width: 90%; /* Responsive width */
+            position: relative;
+        }
+
+        .popup-content h2 {
+            font-size: 24px; /* Heading font size */
+            margin-bottom: 20px;
+            color: #333; /* Heading text color */
+        }
+
+        .popup-content p {
+            font-size: 18px; /* Paragraph font size */
+            color: #666; /* Paragraph text color */
+            margin-bottom: 30px;
+        }
+        .popup-content input[type="email"],
+        .popup-content input[type="number"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .popup-content input[type="email"]:focus,
+        .popup-content input[type="number"]:focus {
+            border-color: #007bff; 
+            outline: none;
+        }
+
+        #closeButton {
+            padding: 10px 20px;
+            background-color: #ff5959; /* Button background color */
+            border: none;
+            cursor: pointer;
+            color: #fff; /* Button text color */
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px; /* Button text size */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #closeButton:hover {
+            background-color: #ff4040; /* Button background color on hover */
+        }
+
+        /* Add animation to the popup for a smooth appearance */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup-content {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+   </style>
+  </head>
+<body>
+    <!--html start for the popup -->
+    <form action="/sendotp" method="post">
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-content">
+        <h2>Enter Your Email</h2>
+        <p><input type="email" name="mail" placeholder="Enter Your email" required></p>
+        <button type="submit" id="closeButton">Ok</button>
+      </div>
+    </div>
+    </form>
+  <!-- end of popup  -->
+    <form action="/doregister" method="post"  style="padding-left: 100px;padding-right: 100px;">
+        <div style="display: flex;">
+            <img src="static/pic/electrologo.png" height="100px" width="150px">
+               <h3 style=" margin-left: 350px; margin-top: 50px; background-color: rgb(45, 123, 241); color: rgb(244, 251, 254); border: 1px solid black;  border-radius: 6px; width: 300px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register Here</h3>
+        </div><br>
+        <div class="form-row">
+            
+            <div class="form-group col-md-6">
+              <label for="inputname">Full Name <span style="color: red;">*</span></label>
+              <input type="text" name="name"  class="form-control" id="inputname" placeholder="Full name" required>
+            </div>
+           
+          </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputNumber">Mobile.No <span style="color: red;">*</span></label>
+              <input type="text" name="number" class="form-control" id="inputnumber" placeholder="Number" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputaltNumber">Alternative Mo.</label>
+                <input type="text" name="alt_num" class="form-control" id="inputaltnumber" placeholder="altNumber">
+              </div>
+          </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email<span style="color: red;">*</span></label>
+            <input type="email" name="mail" class="form-control" id="inputEmail4" placeholder="Email" required value="{{email}}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password<span style="color: red;">*</span></label>
+            <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Address<span style="color: red;">*</span></label>
+          <input type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Address 2</label>
+          <input type="text" name="address1" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" >
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City <span style="color: red;">*</span></label>
+            <input type="text" name="city" class="form-control" id="inputCity" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State<span style="color: red;">*</span></label>
+            <select name="state" id="inputState" class="form-control">
+              <option selected>Madhaya Pradesh</option>
+              <option> Uttar Pradesh</option>
+              <option> Bihar</option>
+              <option> Jammu&Kashmir</option>
+              <option>Rajasthan</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip <span style="color: red;">*</span></label>
+            <input type="text" name="pin" class="form-control" id="inputZip" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" required>
+            <label class="form-check-label" for="gridCheck">
+                <span style="color: red;">*</span>I hereby declare that the information given above is correct.
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+        <input type="reset" value="Reset" class="btn btn-primary">
+        <button type="button" class="btn btn-primary"><a href="/login" style="color: aliceblue;" class="already-reg"> If you are already Registerd.</a></button>
+      </form>
+      <br><br><br><br><br><br>
+      <script>
+        const popupOverlay = document.getElementById('popupOverlay');
+        // const closeButton = document.getElementById('closeButton');  
+        function popup(){
+            popupOverlay.style.display = 'flex';
+        }
+        function ok(){
+            popupOverlay.style.display = 'none';
+        }
+        {%if verified%}
+        {%else%}
+          popup()
+        {%endif%}  
+    </script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

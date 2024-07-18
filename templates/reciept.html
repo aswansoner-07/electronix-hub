@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroniXhub</title>
+    <style>
+        .cpContainer{
+            height: 600px;
+            width: 90%;
+            margin-top: 100px;
+            margin-left: 30px;
+            border: 1px solid black;
+            background-image: url('');
+            
+        }
+        .companyinfo{
+            background-color: rgb(153, 192, 220);
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(0, 0, 0);
+            background-color: transparent;
+        }
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+        margin-left: 23px;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+
+    </style>
+</head>
+<body onload="window.print()">
+    <div class="cpContainer">
+        <h2 style="margin-top: 40px; margin-left: 20%; color: rgb(67, 163, 201);">Product Confirmation Receipt</h2>
+       <div class="companyinfo"> 
+        <img src="static/pic/electrologo.png" height="70px" width="130px" style="margin-left: 40px; mix-blend-mode: multiply;">
+        <p style="float: right; font-size: 18px;margin-top: 0px;margin-right: 30px;">
+           Company Name : ElectroniX-hub ,<br>Address : Indore,Madhya pradesh,India ,<br>Email : supportproduct@ElectroniX-hub.in 
+        </p>
+       </div><br><br>
+       <div style="margin-left: 20px; font-weight: bold;">
+        Receipt No. : <span id="receiptno"></span><br>Customer Name : {{info[0]}} <br> Mobile no. : {{info[1]}} <br> Address : {{info[6]}},{{info[7]}},{{info[8]}},{{info[9]}}
+        <p>
+            Date : <span id="date">{{info[5]}}</span><br>
+            Product OTP : <span id="rcvtimepin" style="color: rgb(225, 20, 20); font-size: 120%;">{{info[4]}}</span><br>
+            This OTP do not share with anyone.
+
+        </p><br>
+       </div><hr><br>
+       <div>
+    <h2 style="margin-left: 33%;">Products Details </h2><br><br>
+    <table>
+        <tr>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+        <tr>
+          <td>{{order_info['name']}}</td>
+          <td>{{order_info['price']}}/-</td>
+          <td>1</td>
+        </tr>
+    
+      </table>
+       </div>
+    </div>
+   
+    <script>
+        let a="1234567890";
+        let receiptNo= Math.floor(Math.random(a)*1000);
+        document.getElementById('receiptno').innerHTML=receiptNo;
+        window.addEventListener('afterprint',function(){
+            // window.history.back();
+            window.location.href="/wishlist?show={{error}}"
+        });
+    </script>
+</body>
+</html>

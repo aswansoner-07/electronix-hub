@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Function to handle "Enter" key press on the button
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                // Perform your action here
+                alert('Enter key pressed on the button!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Button with the onkeypress event -->
+    <button id="myButton" onkeypress="handleKeyPress(event)">Press Enter</button>
+    <script>
+        document.addEventListener('keypress', handleKeyPress);
+    </script>
+</body>
+</html>
